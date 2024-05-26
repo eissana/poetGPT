@@ -342,14 +342,14 @@ if __name__ == "__main__":
     first_mesra = "چو ترکان بدیدند کارجاسپ رفت"
     print(f"\nfirst mesra: {first_mesra}")
 
-    with open("data/shahname_src.txt") as f:
+    with open(split_files[0]) as f:
         src_lines = f.read().splitlines()
 
     src_token_ids = torch.tensor(
         [x.ids for x in tk.encode_batch(src_lines)], dtype=torch.long
     )
 
-    with open("data/shahname_tgt.txt") as f:
+    with open(split_files[1]) as f:
         tgt_lines = f.read().splitlines(keepends=True)
 
     tgt_token_ids = torch.tensor(
